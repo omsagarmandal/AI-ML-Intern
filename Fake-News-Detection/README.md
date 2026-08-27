@@ -68,3 +68,8 @@ docker run -p 8000:8000 fake-news-api
 | Random Forest | 98.60% |
 | XGBoost | 98.81% |
 | MLP (Neural Net) | 98.76% |
+
+---
+
+**Om Sagar Mandal**
+AI/ML Intern
