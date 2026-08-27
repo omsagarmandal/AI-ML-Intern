@@ -72,4 +72,5 @@ docker run -p 8000:8000 fake-news-api
 ---
 
 **Om Sagar Mandal**
+
 AI/ML Intern
