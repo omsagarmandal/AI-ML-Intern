@@ -20,19 +20,26 @@ A Machine Learning + NLP system that classifies news articles as Fake or Real, b
 9. REST API (FastAPI) + Streamlit UI
 10. Test suite (pytest) + Docker containerization
 
-## Project Structure
+## App Features
+- **📝 Text tab** — paste any article text and get an instant Fake/Real prediction with a confidence gauge
+- **🔗 URL tab** — paste a news article link; the app auto-fetches and extracts the article text before classifying
+- **📂 Batch CSV tab** — upload a CSV of multiple articles (with a `text` column) and download predictions for all of them at once
+- **🕒 History tab** — view the last 50 predictions made in the app, with timestamps and confidence scores
+- Custom dark, animated UI (gradient background, glowing buttons, live confidence gauge)
 
+## Project Structure
+```
 Fake-News-Detection/
-├── api/ # FastAPI backend
-├── app/ # Streamlit frontend
-├── data/ # Raw datasets
-├── models/ # Saved model + vectorizer
-├── notebooks/ # EDA + training notebook
-├── tests/ # pytest test suite
-├── images/ # Charts/plots
+├── api/            # FastAPI backend
+├── app/            # Streamlit frontend
+├── data/           # Raw datasets
+├── models/         # Saved model + vectorizer
+├── notebooks/      # EDA + training notebook
+├── tests/          # pytest test suite
+├── images/         # Charts/plots
 ├── Dockerfile
 └── README.md
-
+```
 
 ## Running Locally
 ```bash
@@ -43,7 +50,7 @@ uvicorn main:app --reload --port 8000
 
 # Frontend (new terminal)
 cd app
-pip install streamlit requests
+pip install streamlit requests beautifulsoup4 plotly pandas
 streamlit run streamlit_app.py
 ```
 
@@ -57,6 +64,7 @@ docker run -p 8000:8000 fake-news-api
 - Trained on 2015–2018 US political/world news (agency-report style)
 - On out-of-domain text (different topic, region, or era), predictions show lower confidence since TF-IDF vocabulary is domain-specific
 - On in-domain text, the model is highly confident and accurate (98%+ accuracy, confirmed via temporal split, not just random split)
+- URL extraction relies on generic HTML `<p>` tag scraping, so heavily JS-rendered or paywalled sites may not extract cleanly
 - A production system would need periodic retraining on fresh, diverse data
 
 ## Results Summary
@@ -72,8 +80,4 @@ docker run -p 8000:8000 fake-news-api
 ---
 
 **Om Sagar Mandal**
-<<<<<<< HEAD
 AI/ML Intern
-=======
-AI/ML Intern
->>>>>>> 2d8f07e3f807f2198646fed04dd769a4cfb962e4
