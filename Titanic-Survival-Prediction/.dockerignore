@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+notebooks/
+data/
+images/
+tests/
+.pytest_cache/
